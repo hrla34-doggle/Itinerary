@@ -52,12 +52,24 @@ li {
   top: 50%;
 }
 /*-----------------------------MAP-----------------------------------------*/
-#map-container {
+.map-container {
   width: 48%;
   height: 100%;
   float: left;
   margin: 35px 0 0 0;
   padding-left: 50px;
+  
+  
+}
+.map-container-v2 {
+  width: 48%;
+  height: 100%;
+  opacity: 0;
+  float: left;
+  margin: 35px 0 0 0;
+  padding-left: 50px;
+  transition: opacity .3s linear;
+  
 }
 #map {
   display: block;
@@ -67,7 +79,7 @@ li {
   border-color: lightgrey;
 }
 #mapInfo-container {
-  display: block;
+  display: flex;
   height: 20%;
   box-shadow: 0 0px 10px 0 rgb(211, 211, 211);
   border-style: solid;
@@ -102,7 +114,7 @@ li {
   background-color: rgb(252, 252, 252);
 }
 .map-key-list {
-  display: block;
+  display: flex;
   border-style: solid;
   border-width: 0 1px 1px 1px;
   border-color: lightgrey;
@@ -226,7 +238,7 @@ li:hover .circle > span > span {
   width: 50%;
   height: 100%;
   left: -50;
-  transition: left 10s linear;
+  transition: transform .1s linear;
   border-style: solid;
   border-width: 0 0 0 1px;
   border-color: lightgray;
@@ -293,19 +305,42 @@ li:hover .circle > span > span {
   top: 30%;
 }
 
-/*-----------------------------------Transitions-----------------------------------*/
+/*-----------------------------------Transitions and Animations-----------------------------------*/
 .slide-left {
-  left: 1000;
+  transition: .1s;
+  transform: translateX(-691px)
+}
+.slide-left-schedule {
+  transform: translateX(-750px)
+}
+.slide-right {
+  transition: .1s;
+  transform: translateX(640px)
 }
 .fade-out {
   opacity: 0;
   transition: opacity 0.2s linear;
+}
+.fade-in {
+  opacity: 1;
+  transition: opacity .5s linear;
+  
 }
 .background-red {
   background-color: red;
 }
 .background-white {
   background-color: rgb(255, 255, 255);
+}
+.button-animation {
+  animation: button-animation infinite 1.5s;
+  animation-timing-function: linear;
+}
+@keyframes button-animation {
+  50%{transform: translateX(-3px);}
+}
+.slide-start-pos {
+  transform: translateX(750px);
 }
 /*----------------------------Size adjustments---------------------------------------*/
 .bigger {
@@ -372,3 +407,17 @@ li:hover .circle > span > span {
   height: 10px;
   width: 10px;
 }
+.icon-col{
+  position: relative;
+  width: 200px;
+  height: 40px;
+  font-size: 10px;
+  float: left;
+}
+.icon-center {
+  position: relative;
+  top: 50%;
+  margin-right: 10px;
+}
+
+

@@ -7,7 +7,7 @@ class Map extends React.Component {
   }
   render() {
     return (
-      <div className="display-block" id="map-container">
+      <div className="map-container display-block" id="map-container">
         <h1 className="light-black nunito maintitle">Your Itinerary</h1>
         <div onClick={this.props.expandMap} id="map">
           <img className="bigger" src={this.props.plan.mapPic} />

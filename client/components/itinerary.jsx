@@ -25,7 +25,7 @@ class Itinerary extends React.Component {
     axios.get("/trips").then(result => {
       this.setState({
         plans: result.data,
-        plan: result.data[12]
+        plan: result.data[17]
       });
     });
   }
@@ -41,31 +41,46 @@ class Itinerary extends React.Component {
 
   detailButton() {
     if (document.getElementById("map-container").className !== "display-none") {
-      document.getElementById("map-container").className = "fade-out";
+      document.getElementById("map-container").className = "map-container fade-out";
     }
     setTimeout(() => {
       document.getElementById("detail-button").className = "display-none";
       document.getElementById("back-button").className =
-        "back-button display-block ";
+        "back-button display-block button-animation";
+      document.getElementById("checklist-container").className =
+        "slide-left";
+    }, 200);
+    setTimeout(() => {
+      
       document.getElementById("map-container").className = "display-none";
       document.getElementById("checklist-container").className =
         "padding-left-70";
       document.getElementById("schedule-container").className =
-        "display-block float-right scroll";
-    }, 300);
+        "display-block float-right scroll slide-start-pos";
+    }, 500);
+    setTimeout(()=>{
+      document.getElementById("schedule-container").className =
+        "display-block scroll float-right";
+    }, 530)
   }
   backButton() {
-    document.getElementById("map-container").className = "fade-out";
+    document.getElementById("schedule-container").className = "fade-out slide-right";
+    setTimeout(()=>{
+      document.getElementById("checklist-container").className = "slide-right padding-left-40";
+    }, 100)
     setTimeout(() => {
       document.getElementById("back-button").className =
         "back-button display-none";
       document.getElementById("detail-button").className =
-        "detail-button display-block";
-      document.getElementById("map-container").className = "display-block";
+        "detail-button display-block button-animation";
+      document.getElementById("map-container").className = "map-container-v2 display-block";
       document.getElementById("checklist-container").className =
         "padding-left-40";
       document.getElementById("schedule-container").className = "display-none";
-    }, 300);
+    }, 400);
+    setTimeout(()=>{
+      document.getElementById("map-container").className = "map-container-v2 display-block fade-in";
+    }, 420)
   }
   expandMap() {
     if (this.state.map === "normal") {
@@ -107,7 +122,7 @@ class Itinerary extends React.Component {
         <button
           id="detail-button"
           onClick={this.detailButton}
-          className="detail-button float-right"
+          className="detail-button button-animation float-right"
         >
           >
         </button>
