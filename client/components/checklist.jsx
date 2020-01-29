@@ -7,22 +7,18 @@ class Checklist extends React.Component {
       activeDay: ""
     };
     this.activateDay = this.activateDay.bind(this);
-   
   }
   activateDay(day) {
     this.setState({
       activeDay: day
-    })
-    setTimeout(()=>{
-      for(var x = 0; x < this.props.plan.cities.length; x++ ) {
-
-        this.refs[`ChecklistDay${x}`].changeState()
+    });
+    setTimeout(() => {
+      for (var x = 0; x < this.props.plan.cities.length; x++) {
+        this.refs[`ChecklistDay${x}`].changeState();
       }
-    }, 100)
-    
-  
+    }, 100);
   }
-  
+
   render() {
     return (
       <div
