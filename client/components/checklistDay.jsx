@@ -10,28 +10,26 @@ class ChecklistDay extends React.Component {
     this.changeState = this.changeState.bind(this);
   }
   isActiveHandler() {
-    this.props.activateDay(this.props.day)
-    
+    this.props.activateDay(this.props.day);
   }
   changeState() {
-    console.log(this.props.day)
-    if(this.props.activeDay === this.props.day ) {
+    console.log(this.props.day);
+    if (this.props.activeDay === this.props.day) {
       this.setState({
         isActive: true
-      })
+      });
     } else {
       this.setState({
         isActive: false
-      })
+      });
     }
-  
   }
 
   render() {
-
     if (this.state.isActive == true) {
       return (
-        <li onClick={this.isActiveHandler}
+        <li
+          onClick={this.isActiveHandler}
           className="listEntry background-white"
         >
           <span className="circle background-red">
