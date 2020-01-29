@@ -1,5 +1,5 @@
 import React from "react";
-
+import AirplaneIcon from '../assets/airplane-svgrepo-com.svg';
 class MapInfo extends React.Component {
   constructor(props) {
     super(props);
@@ -37,6 +37,7 @@ class MapInfo extends React.Component {
         </div>
         <div id="map-key-info" className="map-key-info">
           MAP KEY INFO GOES HERE
+          <AirplaneIcon height="30px" width="30px"/>
         </div>
         <div id="city-list-info" className="city-list-info display-none">
           <div className="nunito light-black fontsmall">

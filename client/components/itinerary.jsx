@@ -2,6 +2,7 @@ import React from "react";
 import Map from "./map.jsx";
 import Checklist from "./checklist.jsx";
 import Schedule from "./schedule.jsx";
+
 const axios = require("axios");
 class Itinerary extends React.Component {
   constructor(props) {
