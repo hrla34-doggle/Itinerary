@@ -70,16 +70,17 @@ class Itinerary extends React.Component {
     if (this.state.map === "normal") {
       document.getElementById("expandMap").className = "";
       setTimeout(() => {
-        document.getElementById("expandMap").className = "map-grow";
-      }, 1);
+        document.getElementById("expandMap").firstChild.className = "map-grow";
+      }, 20);
       this.setState({
         map: "extended"
       });
     } else {
-      document.getElementById("expandMap").className = "";
+      document.getElementById("expandMap").firstChild.className = "map-shrink";
+      setTimeout(() => {document.getElementById("expandMap").className = "fade-out";}, 200)
       setTimeout(() => {
         document.getElementById("expandMap").className = "display-none";
-      }, 200);
+      }, 400);
       this.setState({
         map: "normal"
       });
@@ -91,7 +92,7 @@ class Itinerary extends React.Component {
     }
     return (
       <div id="itinerary-container">
-        <button onClick={this.checkmaps}>check all maps</button>
+        <button className="display-none"onClick={this.checkmaps}>check all maps</button>
         <button
           id="back-button"
           onClick={this.backButton}
