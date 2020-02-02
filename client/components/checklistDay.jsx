@@ -13,7 +13,6 @@ class ChecklistDay extends React.Component {
     this.props.activateDay(this.props.day);
   }
   changeState() {
-    console.log(this.props.day);
     if (this.props.activeDay === this.props.day) {
       this.setState({
         isActive: true
@@ -30,17 +29,17 @@ class ChecklistDay extends React.Component {
       return (
         <li
           onClick={this.isActiveHandler}
-          className="listEntry background-white"
+          className="listEntry background-white width-100"
         >
-          <span className="circle background-red">
+          <span className="circle background-red stayRed">
             <span className="innercircle">
               <span className="lastcircle background-red circle-grow"></span>
             </span>
           </span>
           <a id="checklist-anchor" href={"#" + this.props.day}>
-            <span className="nunito grey padding">DAY {this.props.day}: </span>
-            <span className="nunito-bold uppercase light-black">
-              SPEND THE DAY IN {this.props.city}
+            <span className="nunito grey padding">DAY {this.props.day} </span>
+            <span className="nunito-bold light-black checklist-day-padding">
+              {this.props.schedule.title}
             </span>
           </a>
         </li>
@@ -54,9 +53,9 @@ class ChecklistDay extends React.Component {
             </span>
           </span>
           <a id="checklist-anchor" href={"#" + this.props.day}>
-            <span className="nunito grey padding">DAY {this.props.day}: </span>
-            <span className="nunito-bold uppercase light-black">
-              SPEND THE DAY IN {this.props.city}
+            <span className="nunito grey padding">DAY {this.props.day} </span>
+            <span className="nunito-bold light-black checklist-day-padding">
+              {this.props.schedule.title}
             </span>
           </a>
         </li>

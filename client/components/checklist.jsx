@@ -13,7 +13,7 @@ class Checklist extends React.Component {
       activeDay: day
     });
     setTimeout(() => {
-      for (var x = 0; x < this.props.plan.cities.length; x++) {
+      for (var x = 0; x < this.props.plan.schedule.length; x++) {
         this.refs[`ChecklistDay${x}`].changeState();
       }
     }, 100);
@@ -28,14 +28,13 @@ class Checklist extends React.Component {
       >
         <span className="light-black nunito titlefont">Select a day</span>
         <ol id="list" onClick={this.props.detailButton} className="checklist">
-          {this.props.plan.cities.map((city, index) => {
+          {this.props.plan.schedule.map((schedule, index) => {
             return (
               <ChecklistDay
                 ref={`ChecklistDay${index}`}
                 activeDay={this.state.activeDay}
-                index={index}
                 activateDay={this.activateDay}
-                city={city}
+                schedule={schedule}
                 day={index + 1}
               />
             );

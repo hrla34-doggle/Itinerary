@@ -13,31 +13,45 @@ class MapInfo extends React.Component {
     this.mapInfoClickHandler = this.mapInfoClickHandler.bind(this);
   }
   mapInfoClickHandler(e) {
-    console.log(e.currentTarget.parentNode.children[2]);
     if (e.currentTarget.className === "city-list text-center") {
+      document.getElementById('extendo-left').className = 'position-absolute extendo-alt';
+      document.getElementById('extendo-right').className = 'position-absolute right-extendo-alt';
       e.currentTarget.parentNode.children[3].className =
         "city-list-info padding";
       e.currentTarget.parentNode.children[2].className =
         "map-key-info display-none";
+        e.currentTarget.parentNode.children[1].firstChild.className = 'nunito-bold light-black map-info-span-center';
+        e.currentTarget.parentNode.children[0].firstChild.className = 'nunito-bold light-black map-info-span-center font-weight-100';
+        e.currentTarget.parentNode.children[1].className = 'city-list text-center background-white city-list-active';
+        e.currentTarget.parentNode.children[0].className = 'map-key text-center background-grey map-key-inactive';
+        
     }
-    if (e.currentTarget.className === "map-key text-center") {
+    if (e.currentTarget.className === "map-key text-center background-grey map-key-inactive") {
+      document.getElementById('extendo-left').className = 'position-absolute extendo';
+      document.getElementById('extendo-right').className = 'position-absolute right-extendo';
       e.currentTarget.parentNode.children[2].className = "map-key-info padding";
       e.currentTarget.parentNode.children[3].className =
         "city-list-info display-none";
+        e.currentTarget.parentNode.children[1].firstChild.className = 'nunito-bold light-black map-info-span-center font-weight-100';
+        e.currentTarget.parentNode.children[0].firstChild.className = 'nunito-bold light-black map-info-span-center';
+        e.currentTarget.parentNode.children[1].className = 'city-list text-center';
+        e.currentTarget.parentNode.children[0].className = 'map-key text-center';
+        
+        
     }
   }
 
   render() {
     return (
-      <div>
+      <div style={{backgroundColor:"white"}}>
         <div onClick={this.mapInfoClickHandler} className="map-key text-center">
-          <span className="nunito-bold light-black top-center">Map key</span>
+          <span className="nunito-bold light-black map-info-span-center">Map key</span>
         </div>
         <div
           onClick={this.mapInfoClickHandler}
           className="city-list text-center"
         >
-          <span className="nunito-bold light-black top-center">City List</span>
+          <span className="nunito-bold light-black map-info-span-center font-weight-100">City List</span>
         </div>
         <div id="map-key-info" className="map-key-info padding display-flex">
           <div className="icon-col">
@@ -93,8 +107,8 @@ class MapInfo extends React.Component {
           </div>
         </div>
         <div id="city-list-info" className="city-list-info display-none">
-          <div className="nunito light-black fontsmall">
-            {this.props.cities.length} cities
+          <div className="nunito light-black fontsmall margin-left-15">
+            {this.props.cities.length} Cities
           </div>
           {this.props.cities.map(city => {
             return (

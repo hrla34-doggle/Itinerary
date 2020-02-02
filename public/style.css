@@ -9,6 +9,12 @@ a {
 }
 p {
   line-height: 25px;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: lightgrey;
+  padding-bottom: 15px;
+  
+  margin-right: 25px;
 }
 li {
   list-style: none;
@@ -44,12 +50,18 @@ li {
 .detail-button {
   float: right;
   position: relative;
-  top: 50%;
+  top: 40%;
+  font-size: 10px;
+  color: #4c4c4c;
+  margin-right: 10px;
 }
 .back-button {
   float: left;
   position: relative;
-  top: 50%;
+  top: 40%;
+  font-size: 13px;
+  color: #4c4c4c;
+  margin-left: 10px;
 }
 /*-----------------------------MAP-----------------------------------------*/
 .map-container {
@@ -58,6 +70,7 @@ li {
   float: left;
   margin: 35px 0 0 0;
   padding-left: 50px;
+  
   
   
 }
@@ -101,17 +114,27 @@ li {
 }
 .map-key {
   display: block;
-  height: 60px;
+  height: 45px;
   width: 50%;
   float: left;
   background-color: white;
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  border-color: lightgrey;
+  
+  z-index: 2;
 }
 .city-list {
   display: block;
-  height: 60px;
+  height: 45px;
   width: 50%;
   float: right;
   background-color: rgb(252, 252, 252);
+  border-style: solid;
+  border-width: 1px 0 1px 0;
+  border-color: lightgrey;
+  
+  z-index: 2;
 }
 .map-key-list {
   display: flex;
@@ -137,6 +160,37 @@ li {
   padding: 20px;
   background-color: white;
 }
+.city-list-active {
+  border-style: solid;
+  border-width: 1px 0 0 1px;
+  border-color: lightgrey;
+  
+  
+}
+.map-key-inactive {
+  border-style: solid;
+  border-width: 1px 0 1px 0;
+  border-color: lightgrey;
+}
+.print-icon-center {
+  position: relative;
+  top: 25%;
+  left: 25%;
+ }
+ .print-button {
+   position: relative;
+   font-size: 18px;
+   font-weight: 800;
+   top: 15px;
+ }
+ .zoom-in-icon {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border-radius: 50%;
+  margin: 10px;
+  left: 88%;
+}
 /*-----------------------------CHECKLIST-----------------------------------------*/
 #checklist-container {
   display: block;
@@ -152,7 +206,7 @@ li {
 }
 .checklist {
   display: block;
-  width: 80%;
+  width: 100%;
   height: 90%;
   padding: 0;
 }
@@ -183,6 +237,14 @@ li:hover > #checklist-anchor:after {
   top: 20px;
   bottom: 20px;
   left: 7px;
+}
+.stayRed {
+  background-color: red;
+  width: 2px;
+  content: "";
+  position: absolute;
+  z-index: 2;
+  
 }
 
 .circle {
@@ -243,16 +305,21 @@ li:hover .circle > span > span {
   border-width: 0 0 0 1px;
   border-color: lightgray;
   position: relative;
+  padding: 35px 10px 0px 0px;
+  
+
+
 }
 #schedule-day {
-  width: 80%;
+  width: 90%;
   float: left;
   margin: auto;
   background-color: white;
   padding-left: 25px;
 }
 
-/*------------------FONT STYLES -------------------------------------*/
+
+/*------------------FONT STYLES and SIZE ADJUSTMENTS -------------------------------------*/
 .nunito {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 700;
@@ -304,51 +371,55 @@ li:hover .circle > span > span {
   position: relative;
   top: 30%;
 }
+.font-weight-100 {
+  font-weight: 100;
+}
+.margin-left-10 {
+  margin-left: 10px;
+}
+.margin-block-10 {
+  display: block;
+  margin-top: 10px;
+}
 
-/*-----------------------------------Transitions and Animations-----------------------------------*/
-.slide-left {
-  transition: .1s;
-  transform: translateX(-691px)
+.margin-left-15 {
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
-.slide-left-schedule {
-  transform: translateX(-750px)
+.icon-center {
+  position: relative;
+  top: 50%;
+  margin-right: 10px;
 }
-.slide-right {
-  transition: .1s;
-  transform: translateX(640px)
+.position-absolute {
+  z-index: 3;
+  position: absolute;
 }
-.fade-out {
-  opacity: 0;
-  transition: opacity 0.2s linear;
+.position-relative {
+  position: relative;
 }
-.fade-in {
-  opacity: 1;
-  transition: opacity .5s linear;
-  
+.box-shadow {
+  box-shadow: .5px 1px 1px .5px;
+  color: rgba(128, 128, 128, 0.37)
 }
-.background-red {
-  background-color: red;
+.icon-col{
+  position: relative;
+  width: 200px;
+  height: 40px;
+  font-size: 10px;
+  float: left;
 }
-.background-white {
-  background-color: rgb(255, 255, 255);
-}
-.button-animation {
-  animation: button-animation infinite 1.5s;
-  animation-timing-function: linear;
-}
-@keyframes button-animation {
-  50%{transform: translateX(-3px);}
-}
-.slide-start-pos {
-  transform: translateX(750px);
-}
-/*----------------------------Size adjustments---------------------------------------*/
 .bigger {
   height: 100%;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 .no-margin {
   margin: 0;
+}
+.no-padding {
+  padding: 0;
 }
 .padding {
   padding-left: 15px;
@@ -366,23 +437,64 @@ li:hover .circle > span > span {
 .padding-left-70 {
   padding-left: 70px;
 }
-
-#expandMap {
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  background-color: #00000096;
-  z-index: 5;
+.checklist-day-padding {
+  padding-left: 7px;
   
-
 }
-#expandMap > img {
-  position: absolute;
-  transition: all 0.3s;
-  height: 10px;
-  width: 10px;
-  top: 50%;
-  left: 50%;
+.scheduleDayIcon-margin {
+  margin: 16px 0 16px 0;
+}
+.scheduleDayIcon-padding {
+  padding-right: 3px;
+}
+.font-weight-600 {
+  font-weight: 600;
+  font-size: 14px;
+}
+.font-size {
+  font-size: 15px;
+}
+
+
+/*-----------------------------------Transitions and Animations-----------------------------------*/
+.slide-left {
+  transition: .1s;
+  transform: translateX(-691px)
+}
+.slide-left-schedule {
+  transform: translateX(-750px)
+}
+.slide-right {
+  transition: .1s;
+  transform: translateX(650px)
+}
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+.fade-in {
+  opacity: 1;
+  transition: opacity .5s linear;
+  
+}
+.background-red {
+  background-color: red;
+}
+.background-white {
+  background-color: rgb(255, 255, 255);
+}
+.background-grey {
+  background-color: rgb(252, 252, 252);
+}
+.button-animation {
+  animation: button-animation infinite 1.5s;
+  animation-timing-function: linear;
+}
+@keyframes button-animation {
+  50%{transform: translateX(-4px);}
+}
+.slide-start-pos {
+  transform: translateX(750px);
 }
 .circle-grow {
   -webkit-transition: all 0.5s ease-in-out;
@@ -407,50 +519,98 @@ li:hover .circle > span > span {
   height: 10px;
   width: 10px;
 }
-.icon-col{
+#expandMap {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: #00000096;
+  z-index: 5;
+  
+
+}
+#expandMap > img {
+  position: absolute;
+  transition: all 0.3s;
+  height: 10px;
+  width: 10px;
+  top: 50%;
+  left: 50%;
+}
+.extendo {
+  top:98%;
+  width: 50%;
+  height: 15px;
+  background-color: white;
+  z-index: 2;
+  border-width: 1px 1px 0 0;
+  border-style: solid;
+  border-color: lightgrey;
+
+}
+.right-extendo {
+  left: 50%;
+  top:98%;
+  width: 50%;
+  height: 15px;
+  z-index: 2;
+  background-color: transparent;
+}
+.extendo-alt {
+  top:98%;
+  width: 50%;
+  height: 15px;
+  background-color: transparent;
+  z-index: 2;
+  
+
+}
+.right-extendo-alt {
+  left: 50%;
+  top:98%;
+  width: 50%;
+  height: 15px;
+  z-index: 2;
+  border-width: 1px 0 0 1px;
+  border-style: solid;
+  border-color: lightgrey;
+  background-color: white;
+}
+.map-info-span-center {
   position: relative;
-  width: 200px;
-  height: 40px;
-  font-size: 10px;
+  top: 18%;
+}
+
+.optional-container {
+  width: 90%;
+  height: auto;
+  display: block;
+  float: right;
+  padding: 8px 25px 45px 25px;
+  background-color: white;
   float: left;
 }
-.icon-center {
-  position: relative;
-  top: 50%;
-  margin-right: 10px;
+.optional-box {
+  margin: 20px 0 20px 0;
+  padding: 15px;
+  display: block;
+  background-color: rgb(252, 252, 252);
+  height: auto;
+  width: 100%;
+  
 }
-.position-absolute {
-  z-index: 3;
-  position: absolute;
+#optional-description {
+  border-style: none;
+  width: auto;
+  margin: 0;
 }
-.position-relative {
-  position: relative;
+.footnote {
+  font-size: 12px;
+  font-weight: 100;
+  display: block;
+  margin: 20px 0 15px 0;
 }
-.box-shadow {
-  box-shadow: .5px 1px 1px .5px;
-  color: rgba(128, 128, 128, 0.37)
-}
-.zoom-in-icon {
-  height: 50px;
-  width: 50px;
-  background-color: white;
-  border-radius: 50%;
-  margin: 10px;
-  left: 88%;
-}
-.print-icon-center {
- position: relative;
- top: 25%;
- left: 25%;
-}
-.print-button {
-  position: relative;
-  font-size: 18px;
-  font-weight: 800;
-  top: 15px;
-}
-.margin-left-10 {
-  margin-left: 10px;
-}
+
+
+
 
 
