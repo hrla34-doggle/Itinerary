@@ -609,6 +609,9 @@ li:hover .circle > span > span {
   display: block;
   margin: 20px 0 15px 0;
 }
+.optional-checklist-font{
+  font-size: 15px;
+}
 
 
 

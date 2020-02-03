@@ -7,7 +7,7 @@ var TripEnding = [' the ghetto', ' the ruins', ' the country', ' the best towns'
 var TripLocation = ['Egypt', 'Kenya', 'Morocco', 'South_Africa','China', 'Israel', 'India', 'Japan', 'South_Korea', 'Thailand', 'Vietnam','France', 'Germany', 'Greece', 'Ireland', 'Italy', 'The_Netherlands', 'Norway', 'Poland', 'Portugal', 'Russia', 'Spain', 'Switzerland', 'The_United_Kingdom','The_United_States', 'Costa_Rica', 'Mexico', 'Canada','Brazil', 'Peru','Australia', 'New_Zealand', 'Colombia'];
 
 var cities = {
-    Egypt: ['Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza'],
+    Egypt: ['Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza','Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza','Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza','Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza','Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza','Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza'],
     Kenya: ['Nairobi', 'Nakuru', 'Mombosa', 'Eldoret', 'Kikuyu'],
     Colombia: ['Bogota', 'Barranquilla', 'Medellin', 'Cartagena', 'Santa Marta', 'Cali'],
     Morocco: ['Casablanca', 'Fez', 'Marrakech', 'Tinghir', 'Tangier', 'Meknes'],
@@ -146,7 +146,7 @@ var createTripObject = (x) => {
                     scheduleDay.title += `${trip.cities[city]}`;
                 } else {
                     staylength++;
-                    scheduleDay.activity = activiies[Math.floor(Math.random() * 5)];
+                    scheduleDay.activity = activities[Math.floor(Math.random() * 5)];
                     scheduleDay.title = `${scheduleDay.city} ${scheduleDay.activity}`;
                 }
             }

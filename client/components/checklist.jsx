@@ -4,9 +4,12 @@ class Checklist extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeDay: ""
+      activeDay: "",
+      view: this.props.view
     };
     this.activateDay = this.activateDay.bind(this);
+    this.anchorClick = this.anchorClick.bind(this);
+    this.optionalCheck = this.optionalCheck.bind(this);
   }
   activateDay(day) {
     this.setState({
@@ -16,7 +19,17 @@ class Checklist extends React.Component {
       for (var x = 0; x < this.props.plan.schedule.length; x++) {
         this.refs[`ChecklistDay${x}`].changeState();
       }
-    }, 100);
+    }, 50);
+  }
+  anchorClick(){
+    console.log('hi')
+    if(this.state.activeDay === "" ) {
+      document.getElementById('list').children[0].children[1].click()
+    }
+    document.getElementById('list').children[this.state.activeDay - 1].children[1].click();
+  }
+  optionalCheck() {
+    this.activateDay(this.props.plan.schedule.length + 1)
   }
 
   render() {
@@ -39,6 +52,18 @@ class Checklist extends React.Component {
               />
             );
           })}
+          <li id="optional-li" day={this.props.plan.schedule.length + 2}onClick={this.optionalCheck}className="listEntry">
+          <span className="circle">
+            <span className="innercircle">
+              <span className="lastcircle"></span>
+            </span>
+          </span>
+          <a  href={'#optionals'}>
+            <span className="nunito light-black checklist-day-padding optional-checklist-font">
+              All optional experiences for this trip
+            </span>
+          </a>
+        </li>
         </ol>
       </div>
     );

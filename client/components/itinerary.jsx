@@ -20,6 +20,7 @@ class Itinerary extends React.Component {
     this.backButton = this.backButton.bind(this);
     this.checkmaps = this.checkmaps.bind(this);
     this.expandMap = this.expandMap.bind(this);
+    this.checkScroll = this.checkScroll.bind(this);
   }
   componentDidMount() {
     this.getItinerary();
@@ -28,7 +29,7 @@ class Itinerary extends React.Component {
     axios.get("/trips").then(result => {
       this.setState({
         plans: result.data,
-        plan: result.data[5]
+        plan: result.data[16]
       });
     });
   }
@@ -43,7 +44,9 @@ class Itinerary extends React.Component {
   }
 
   detailButton() {
+    
     if (this.state.view === 'map') {
+      setTimeout(()=>{this.refs.checklist.anchorClick()}, 700)
       if (document.getElementById("map-container").className !== "display-none") {
         document.getElementById("map-container").className =
           "map-container fade-out";
@@ -71,6 +74,8 @@ class Itinerary extends React.Component {
     } 
   }
   backButton() {
+    this.checkScroll('');
+    this.refs.schedule.reset();
     document.getElementById("schedule-container").className =
       "fade-out slide-right";
     setTimeout(() => {
@@ -119,6 +124,9 @@ class Itinerary extends React.Component {
     }
     
   }
+  checkScroll(x){
+    this.refs.checklist.activateDay(x)
+  }
   render() {
     if (this.state.plan === "") {
       return <div>LOADING</div>;
@@ -137,8 +145,8 @@ class Itinerary extends React.Component {
           Back
         </div>
         <Map expandMap={this.expandMap} plan={this.state.plan} />
-        <Checklist detailButton={this.detailButton} plan={this.state.plan} />
-        <Schedule plan={this.state.plan} />
+        <Checklist ref="checklist" view={this.state.view} detailButton={this.detailButton} plan={this.state.plan} />
+        <Schedule ref="schedule" checkScroll={this.checkScroll} plan={this.state.plan} />
         <div
           id="detail-button"
           onClick={this.detailButton}

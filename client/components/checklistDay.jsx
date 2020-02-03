@@ -8,12 +8,13 @@ class ChecklistDay extends React.Component {
     };
     this.isActiveHandler = this.isActiveHandler.bind(this);
     this.changeState = this.changeState.bind(this);
+    
   }
   isActiveHandler() {
     this.props.activateDay(this.props.day);
   }
   changeState() {
-    if (this.props.activeDay === this.props.day) {
+    if (this.props.activeDay == this.props.day) {
       this.setState({
         isActive: true
       });
@@ -23,7 +24,7 @@ class ChecklistDay extends React.Component {
       });
     }
   }
-
+  
   render() {
     if (this.state.isActive == true) {
       return (
