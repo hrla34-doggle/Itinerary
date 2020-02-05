@@ -5,7 +5,6 @@ class Checklist extends React.Component {
     super(props);
     this.state = {
       activeDay: "",
-      view: this.props.view
     };
     this.activateDay = this.activateDay.bind(this);
     this.anchorClick = this.anchorClick.bind(this);
@@ -30,6 +29,9 @@ class Checklist extends React.Component {
   }
   optionalCheck() {
     this.activateDay(this.props.plan.schedule.length + 1)
+  }
+  switchView(){
+    
   }
 
   render() {

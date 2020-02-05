@@ -1,4 +1,5 @@
-import {getItinerary} from './itinerary';
+
+
 
 describe('Addition', () => {
     it('knows that 2 and 2 make 4', () => {
@@ -6,6 +7,8 @@ describe('Addition', () => {
     });
   });
 
-describe('getItinerary gets array of items', () => {
-    
+describe('CRUD requests working', () => {
+    it('get request returns array'), () => {
+      
+    }
 })

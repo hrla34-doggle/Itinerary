@@ -8,7 +8,8 @@ const TripSchema = mongoose.Schema({
   cities: [String],
   mapPic: String,
   schedule: Array,
-  optionals: Array
+  optionals: Array,
+  coordinates: Array
 });
 
 module.exports = TripSchema;

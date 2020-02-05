@@ -4,10 +4,10 @@ var TripAdjectives = ['Gorgeous', 'Fun', 'Amazing', 'Crazy', 'Adventurous'];
 var TripStyle = [' trip', ' escapade', ' vacation', ' getaway', ' experience']
 var TripDetails = [' in the middle of', ' around', ' through', ' right in', ' in'];
 var TripEnding = [' the ghetto', ' the ruins', ' the country', ' the best towns', ' unchartered territory'];
-var TripLocation = ['Egypt', 'Kenya', 'Morocco', 'South_Africa','China', 'Israel', 'India', 'Japan', 'South_Korea', 'Thailand', 'Vietnam','France', 'Germany', 'Greece', 'Ireland', 'Italy', 'The_Netherlands', 'Norway', 'Poland', 'Portugal', 'Russia', 'Spain', 'Switzerland', 'The_United_Kingdom','The_United_States', 'Costa_Rica', 'Mexico', 'Canada','Brazil', 'Peru','Australia', 'New_Zealand', 'Colombia'];
+var TripLocation = ['Egypt', 'Kenya', 'Morocco', 'South_Africa','China', 'Israel', 'India', 'Japan', 'South_Korea', 'Thailand', 'Vietnam','France', 'Germany', 'Greece', 'Ireland', 'Italy', 'Netherlands', 'Norway', 'Poland', 'Portugal', 'Russia', 'Spain', 'Switzerland', 'United_Kingdom','United_States', 'Costa_Rica', 'Mexico', 'Canada','Brazil', 'Peru','Australia', 'New_Zealand', 'Colombia'];
 
 var cities = {
-    Egypt: ['Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza','Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza','Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza','Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza','Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza','Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza'],
+    Egypt: ['Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza'],
     Kenya: ['Nairobi', 'Nakuru', 'Mombosa', 'Eldoret', 'Kikuyu'],
     Colombia: ['Bogota', 'Barranquilla', 'Medellin', 'Cartagena', 'Santa Marta', 'Cali'],
     Morocco: ['Casablanca', 'Fez', 'Marrakech', 'Tinghir', 'Tangier', 'Meknes'],
@@ -24,22 +24,22 @@ var cities = {
     Greece: ['Athens', 'Olympia', 'Santorini', 'Corfu', 'Delphi'],
     Ireland: ['Blarney', 'Dublin', 'Cork', 'Galway', 'Limerick'],
     Italy: ['Capri', 'Florence', 'Rome', 'Pisa', 'Venice', 'Naples', 'Pompeii'],
-    The_Netherlands: ['Amsterdam', 'Delft', 'Rotterdam', 'Groningen'],
+    Netherlands: ['Amsterdam', 'Delft', 'Rotterdam', 'Groningen'],
     Norway: ['Bergen', 'Oslo', 'Lillehammer', 'Stavanger', 'Fredrickstad'],
     Poland: ['Warsaw', 'Gdansk', 'Zakopane', 'Krakow'],
     Portugal: ['Coimbra', 'Mateus', 'Porto', 'Lisbon'],
     Russia: ['Moscow', 'Saint Petersburg', 'Kazan'],
     Spain: ['Madrid', 'Cordoba', 'Barcelona', 'Granada', 'Seville', 'Toledo', 'Valencia', 'Bilbao'],
     Switzerland: ['Zurich', 'Bern', 'Lucerne', 'St. Moritz'],
-    The_United_Kingdom: ['Edinburgh', 'Liverpool', 'London', 'York', 'Oxford', 'Glasgow', 'Cardiff', 'Manchester'],
-    The_United_States: ['Juneau', 'Anchorage', 'Fairbanks', 'Seward'],
+    United_Kingdom: ['Edinburgh', 'Liverpool', 'London', 'York', 'Oxford', 'Glasgow', 'Cardiff', 'Manchester'],
+    United_States: ['Miami', 'Orlando', 'Tampa', 'Jacksonville'],
     Costa_Rica: ['San Jose', 'Monteverde', 'Liberia', 'Tortuguero'],
     Mexico: ['Mexico City', 'Cancun', 'Tulum', 'Chichen Itza', 'Cozumel', 'Puerto Vallarta'],
     Canada: ['Montreal', 'Quebec_City', 'Ottawa', 'Toronto', 'Vancouver', 'Banff'],
     Brazil: ['Rio de Janeiro', 'Sao Paulo', 'Brasilia', 'Salvador'],
     Peru: ['Cuzco', 'Lima', 'Puno', 'Trujillo', 'Arequipa'],
     Australia: ['Melbourne', 'Sydney', 'Canberra', 'Adelaide'],
-    New_Zealand: ['Auckland', 'Christchurch', 'Picton', 'Wellington'],
+    New_Zealand: ['Auckland', 'Christchurch', 'Picton', 'Wellington']
   };
 
 var createTripName = () => {
@@ -68,13 +68,14 @@ var createOptional = (x) => {
 }
 
 
+
 var createTripObject = (x) => {
     var trip = {};
     trip.id = x;
     trip.name = createTripName();
     trip.location = TripLocation[x]
     trip.cities = cities[trip.location];
-    trip.mapPic = `https://ebtrafalgar.s3-us-west-1.amazonaws.com/Map+pictures/${trip.location}.png`;
+    trip.mapPic = `https://ebtrafalgar.s3-us-west-1.amazonaws.com/Map+pictures/map_pictures/${trip.location}.png`;
     trip.name+=` of ${trip.location}`;
     trip.optionals = [];
     
@@ -160,7 +161,20 @@ var createTripObject = (x) => {
         return schedule;
     
     }
+    var createCoordinates = () => {
+        var coordinates = [];
+        for(var x = 0; x < trip.cities.length; x++) {
+            let coordinateObj = {};
+            coordinateObj.left = Math.floor(Math.random() * 600);
+            coordinateObj.top = Math.floor(Math.random() * 600);
+            coordinates.push(coordinateObj);
+        }
+        return coordinates;
+    
+    }
     trip.schedule = createSchedule();
+    trip.coordinates = createCoordinates();
+    
     
     return trip;
     

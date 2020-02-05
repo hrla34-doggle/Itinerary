@@ -25,11 +25,12 @@ class Itinerary extends React.Component {
   componentDidMount() {
     this.getItinerary();
   }
+
   getItinerary() {
     axios.get("/trips").then(result => {
       this.setState({
         plans: result.data,
-        plan: result.data[16]
+        plan: result.data[24]
       });
     });
   }
@@ -76,6 +77,9 @@ class Itinerary extends React.Component {
   backButton() {
     this.checkScroll('');
     this.refs.schedule.reset();
+    setTimeout(()=>{this.refs.map.deleteLines();}, 500)
+    setTimeout(()=>{for( var x = 0; x < this.state.plan.cities.length-1; x++) {
+      this.refs.map.lineMaker(x);}}, 500)
     document.getElementById("schedule-container").className =
       "fade-out slide-right";
     setTimeout(() => {
@@ -144,7 +148,7 @@ class Itinerary extends React.Component {
           <BackIcon />
           Back
         </div>
-        <Map expandMap={this.expandMap} plan={this.state.plan} />
+        <Map ref ="map" expandMap={this.expandMap} plan={this.state.plan} />
         <Checklist ref="checklist" view={this.state.view} detailButton={this.detailButton} plan={this.state.plan} />
         <Schedule ref="schedule" checkScroll={this.checkScroll} plan={this.state.plan} />
         <div
