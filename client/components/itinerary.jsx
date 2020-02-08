@@ -28,7 +28,7 @@ class Itinerary extends React.Component {
     
   }
   onSubmithandler(id) {
-    axios.get(`/trips${id}`).then(result => {
+    axios.get(`http://localhost:3000/trips/${id}`).then(result => {
       this.setState({
         plans: result.data,
         plan: result.data
@@ -37,13 +37,22 @@ class Itinerary extends React.Component {
   }
 
   getItinerary() {
-    var url = window.location.href.toString().slice(22);
-    let urlid = url.slice(0, url.length-1);
-    axios.get("/trips").then(result => {
+    var urlStart = window.location.href.indexOf('?');
+    let urlid = window.location.href.slice(urlStart+1).toString();
+    
+    axios.get("http://localhost:3000/trips/hi").then(result => {
+      var place = 0;
       this.setState({
         plans: result.data,
-        plan: result.data[urlid-1]
+        plan: result.data[place]
       });
+      for( var x = 0; x < this.state.plans.length; x++){
+        if(this.state.plans[x].location === urlid){
+          this.setState({
+            plan:this.state.plans[x]
+          })
+        }
+      }
     });
     
   }

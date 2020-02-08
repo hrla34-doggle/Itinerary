@@ -1,5 +1,5 @@
 /*-------------------------------Master------------------------------------------*/
-
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap');
 a {
   display: block;
   padding: 14px 25px 16px 12px;
@@ -31,6 +31,7 @@ li {
   border-style: solid;
   border-width: 0 0 1px 0;
   border-color: lightgray;
+  
 }
 
 .display-block {
@@ -661,6 +662,10 @@ li:hover .circle > span > span {
   overflow: auto;
   z-index: 10;
 }
+
+
+
+#itinerary{box-sizing:border-box}*{box-sizing:inherit}
 
 
 

@@ -8,7 +8,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
-app.use('/trips', router);
+app.use('/trips/hi', router);
 app.use(express.static(path.join(__dirname, '../public')))
 
 
