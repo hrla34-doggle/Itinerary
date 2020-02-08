@@ -19,6 +19,7 @@ class Map extends React.Component {
     this.randomizer = this.randomizer.bind(this);
     this.lineMaker = this.lineMaker.bind(this);
     this.deleteLines = this.deleteLines.bind(this);
+    this.Print = this.Print.bind(this);
   
   }
   componentDidMount(){
@@ -52,10 +53,12 @@ class Map extends React.Component {
   
   lineMaker(x){
     
+    var reflex=document.getElementById('itinerary').getBoundingClientRect().y;
+    console.log(window.scrollY)
     var x1 = document.getElementById(`icon${x}`).getBoundingClientRect().x + window.scrollX;
-    var y1 = document.getElementById(`icon${x}`).getBoundingClientRect().y + window.scrollY -485;
+    var y1 = document.getElementById(`icon${x}`).getBoundingClientRect().y -reflex;
     var x2 = document.getElementById(`icon${x+1}`).getBoundingClientRect().x + window.scrollX;
-    var y2 = document.getElementById(`icon${x+1}`).getBoundingClientRect().y + window.scrollY -485;
+    var y2 = document.getElementById(`icon${x+1}`).getBoundingClientRect().y -reflex;
     let line = document.createElementNS("http://www.w3.org/2000/svg","path");
     let div = document.createElement('div');
     div.className = "position-absolute from-0 z-index-5";
@@ -72,20 +75,22 @@ class Map extends React.Component {
     var offset = 20;
     var c1x = mpx + offset * Math.cos(theta);
     var c1y = mpy + offset * Math.sin(theta);
-    var curve = "M" + (x1 -35) + " " + (y1 -90) + " Q " +c1x+ " " + c1y + " " +(x2-35) + " " + (y2-90);
+    var curve = "M" + (x1 -35) + " " + (y1 -80) + " Q " +c1x+ " " + c1y + " " +(x2-35) + " " + (y2-80);
     line.setAttributeNS(null, "fill", "none")
     line.setAttributeNS(null , "d", curve)
     document.getElementById('map').appendChild(div);
     if( document.getElementById(`plane${x}`)!== null ) {
       document.getElementById(`plane${x}`).setAttribute('style', `top: ${c1x - offset}; left: ${mpx};`);
-      
     }
     
+  }
+  Print(){
+    window.print();
   }
   render() {
     return (
       <div className="map-container display-block" id="map-container">
-        <h1 className="light-black nunito maintitle">Your itinerary<span onClick={() => window.print()} className="float-right print-button">Print<PrintIcon className="float-right margin-left-10" height="23px" width="23px"/></span></h1>
+        <h1 className="light-black nunito maintitle">Your itinerary<span onClick={this.Print} className="float-right print-button">Print<PrintIcon className="float-right margin-left-10" height="23px" width="23px"/></span></h1>
         <div className="position-relative" onClick={this.props.expandMap} id="map">
           <div className="zoom-in-icon position-absolute box-shadow"><ZoomInIcon className="print-icon-center" height="25px" width="25px"/></div>
           <div id="extendo-left" className="position-absolute extendo"></div><div id="extendo-right" className="position-absolute right-extendo"></div>

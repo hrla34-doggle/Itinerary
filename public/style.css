@@ -662,6 +662,21 @@ li:hover .circle > span > span {
   overflow: auto;
   z-index: 10;
 }
+.printArea{
+  position: absolute;
+  left: 1000000
+}
+.example-print {
+  display: none;
+}
+@media print {
+ .example-screen {
+     display: none;
+  }
+  .example-print {
+     display: block;
+  }
+}
 
 
 
