@@ -7,8 +7,3 @@ describe('Addition', () => {
     });
   });
 
-describe('CRUD requests working', () => {
-    it('get request returns array'), () => {
-      
-    }
-})

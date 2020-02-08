@@ -21,18 +21,41 @@ class Itinerary extends React.Component {
     this.checkmaps = this.checkmaps.bind(this);
     this.expandMap = this.expandMap.bind(this);
     this.checkScroll = this.checkScroll.bind(this);
+    this.onSearchChangeMap = this.onSearchChangeMap.bind(this);
   }
   componentDidMount() {
     this.getItinerary();
+    
+  }
+  onSubmithandler(id) {
+    axios.get(`http://localhost:3000/trips${id}`).then(result => {
+      this.setState({
+        plans: result.data,
+        plan: result.data
+      });
+    });
   }
 
   getItinerary() {
-    axios.get("/trips").then(result => {
+    var url = window.location.href.toString().slice(22);
+    let urlid = url.slice(0, url.length-1);
+    axios.get("http://localhost:3000/trips").then(result => {
       this.setState({
         plans: result.data,
-        plan: result.data[24]
+        plan: result.data[urlid-1]
       });
     });
+    
+  }
+  onSearchChangeMap(location){
+    for(var x = 0; x < this.state.plans.length; x++) {
+      if(this.state.plans[x].location === location){
+        this.setState({
+          plan: this.state.plan[x]
+        })
+      }
+    }
+    
   }
   checkmaps() {
     var x = 0;
@@ -107,7 +130,7 @@ class Itinerary extends React.Component {
   }
   expandMap() {
     if (this.state.map === "normal") {
-      document.getElementById("expandMap").className = "";
+      document.getElementById("expandMap").className = "position-sticky";
       setTimeout(() => {
         document.getElementById("expandMap").firstChild.className = "map-grow";
       }, 20);
@@ -159,9 +182,10 @@ class Itinerary extends React.Component {
           <DetailIcon />
           Detail
         </div>
-        <div onClick={this.expandMap} id="expandMap" className="display-none">
+        <div className="position-absolute z-index-5"><div onClick={this.expandMap} id="expandMap" className="display-none">
           <img src={this.state.plan.mapPic} />
-        </div>
+        </div></div>
+        
       </div>
     );
   }

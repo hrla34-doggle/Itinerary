@@ -4,8 +4,8 @@ var TripAdjectives = ['Gorgeous', 'Fun', 'Amazing', 'Crazy', 'Adventurous'];
 var TripStyle = [' trip', ' escapade', ' vacation', ' getaway', ' experience']
 var TripDetails = [' in the middle of', ' around', ' through', ' right in', ' in'];
 var TripEnding = [' the ghetto', ' the ruins', ' the country', ' the best towns', ' unchartered territory'];
-var TripLocation = ['Egypt', 'Kenya', 'Morocco', 'South_Africa','China', 'Israel', 'India', 'Japan', 'South_Korea', 'Thailand', 'Vietnam','France', 'Germany', 'Greece', 'Ireland', 'Italy', 'Netherlands', 'Norway', 'Poland', 'Portugal', 'Russia', 'Spain', 'Switzerland', 'United_Kingdom','United_States', 'Costa_Rica', 'Mexico', 'Canada','Brazil', 'Peru','Australia', 'New_Zealand', 'Colombia'];
-
+// var TripLocation = ['Egypt', 'Kenya', 'Morocco', 'South_Africa','China', 'Israel', 'India', 'Japan', 'South_Korea', 'Thailand', 'Vietnam','France', 'Germany', 'Greece', 'Ireland', 'Italy', 'Netherlands', 'Norway', 'Poland', 'Portugal', 'Russia', 'Spain', 'Switzerland', 'United_Kingdom','United_States', 'Costa_Rica', 'Mexico', 'Canada','Brazil', 'Peru','Australia', 'New_Zealand', 'Colombia'];
+var TripLocation = ['Australia', 'Israel', 'New_Zealand', 'Israel', 'Australia', 'South_Korea', 'South_Africa', 'South_Korea', 'Canada','China', 'Switzerland', 'New_Zealand', 'Costa_Rica', 'New_Zealand', 'New_Zealand', 'Costa_Rica', 'Peru', 'Kenya', 'Morocco', 'Thailand', 'Kenya', 'Russia', 'Egypt', 'Morocco', 'Australia', 'China', 'New_Zealand', 'Mexico', 'Costa_Rica', 'Brazil', 'Poland', 'Costa_Rica', 'Norway','Peru','South_Korea', 'Japan', 'Mexico','United_States', 'South_Africa', 'Japan', 'Vietnam', 'Brazil', 'Ireland', 'Canada', 'Australia', 'Thailand', 'Vietnam', 'Peru', 'Egypt', 'Brazil', 'Greece', 'Costa_Rica', 'Kenya', 'Kenya', 'South_Korea', 'New_Zealand', 'Greece', 'Mexico', 'Australia', 'Costa_Rica', 'Norway', 'South_Korea', 'Vietnam', 'United_States', 'Greece', 'South_Africa', 'Morocco', 'India', 'Kenya', 'Australia', 'New_Zealand', 'Germany', 'Peru', 'South_Africa', 'Peru', 'Italy', 'Ireland', 'India', 'Australia', 'Morocco', 'United_States', 'Vietnam', 'Israel', 'Poland', 'Italy', 'Egypt', 'Mexico', 'Spain', 'Japan', 'Canada', 'Costa_Rica', 'Switzerland', 'Israel', 'Peru', 'Brazil', 'Brazil', 'Japan', 'South_Africa', 'Mexico', 'Poland']
 var cities = {
     Egypt: ['Cairo', 'Alexandria', 'Luxor', 'Aswan', 'Giza'],
     Kenya: ['Nairobi', 'Nakuru', 'Mombosa', 'Eldoret', 'Kikuyu'],
@@ -181,7 +181,7 @@ var createTripObject = (x) => {
 }
 
 
-for(var x = 0; x < 33; x++) {
+for(var x = 0; x < 100; x++) {
     Trip.create(createTripObject(x));
 
 }

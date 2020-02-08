@@ -51,13 +51,14 @@ class Map extends React.Component {
   }
   
   lineMaker(x){
+    
     var x1 = document.getElementById(`icon${x}`).getBoundingClientRect().x + window.scrollX;
-    var y1 = document.getElementById(`icon${x}`).getBoundingClientRect().y + window.scrollY;
+    var y1 = document.getElementById(`icon${x}`).getBoundingClientRect().y + window.scrollY -970;
     var x2 = document.getElementById(`icon${x+1}`).getBoundingClientRect().x + window.scrollX;
-    var y2 = document.getElementById(`icon${x+1}`).getBoundingClientRect().y + window.scrollY;
+    var y2 = document.getElementById(`icon${x+1}`).getBoundingClientRect().y + window.scrollY -970;
     let line = document.createElementNS("http://www.w3.org/2000/svg","path");
     let div = document.createElement('div');
-    div.className = "position-absolute from-0";
+    div.className = "position-absolute from-0 z-index-5";
     div.id = `line${x}`;
     let svg = document.createElementNS("http://www.w3.org/2000/svg","svg");
     svg.appendChild(line);

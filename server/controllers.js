@@ -23,6 +23,11 @@ const controllers = {
         models.delete(req.body)
         .then(()=>{res.status(200).send('deleted all')})
         .catch((err)=> {res.status(400).send(err)})
+    },
+    getOne: (req, res) => {
+        var one = req.params;
+        console.log(one)
+        models.get({})
     }
 }
 
