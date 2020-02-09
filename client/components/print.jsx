@@ -1,3 +1,15 @@
 import React from 'react';
+import Schedule from './schedule.jsx'
 
-const Print = () => 
+class Print extends React.Component {
+    constructor(){
+        super(props);
+        this.state = {
+
+        }
+
+    }
+    render () {
+        <Schedule/>
+    }
+}
