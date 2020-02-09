@@ -13,3 +13,4 @@ class Print extends React.Component {
         <Schedule/>
     }
 }
+module.exports = Print;

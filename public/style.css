@@ -1,6 +1,6 @@
 /*-------------------------------Master------------------------------------------*/
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap');
-#itinerary > a {
+a {
   display: block;
   padding: 14px 25px 16px 12px;
   color: black;
@@ -16,7 +16,7 @@
   
   margin-right: 25px;
 }
-#itinerary >li {
+li {
   list-style: none;
   position: relative;
 }
