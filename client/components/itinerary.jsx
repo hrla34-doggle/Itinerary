@@ -193,7 +193,7 @@ class Itinerary extends React.Component {
           <DetailIcon />
           Detail
         </div>
-        <div className="position-absolute z-index-5"><div onClick={this.expandMap} id="expandMap" className="display-none">
+        <div className="position-absolute z-index-7"><div onClick={this.expandMap} id="expandMap" className="display-none">
           <img src={this.state.plan.mapPic} />
         </div></div>
         

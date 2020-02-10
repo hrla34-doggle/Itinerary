@@ -7,6 +7,7 @@ a {
   font-size: medium;
   text-decoration: none;
 }
+
 #schedule-container p {
   line-height: 25px;
   border-style: solid;
@@ -73,11 +74,9 @@ li {
   height: 1054px;
   float: left;
   margin: 35px 0 0 0;
-  padding-left: 50px;
-  
-  
-  
+  padding-left: 50px;  
 }
+
 .map-container-v2 {
   width: 48%;
   height: 100%;
@@ -95,6 +94,9 @@ li {
   border-width: 1px 1px 0 1px;
   border-color: lightgrey;
   position: relative;
+}
+#map:hover {
+  cursor: pointer;
 }
 #mapInfo-container {
   display: flex;
@@ -129,6 +131,9 @@ li {
   
   z-index: 2;
 }
+.map-key:hover{
+  cursor: pointer;
+}
 .city-list {
   display: block;
   height: 45px;
@@ -140,6 +145,9 @@ li {
   border-color: lightgrey;
   
   z-index: 2;
+}
+.city-list:hover {
+  cursor: pointer;
 }
 .map-key-list {
   display: flex;
@@ -187,6 +195,9 @@ li {
    font-size: 18px;
    font-weight: 800;
    top: 15px;
+ }
+ .print-button:hover{
+   cursor: pointer;
  }
  .zoom-in-icon {
   height: 50px;
@@ -530,7 +541,7 @@ li:hover .circle > span > span {
   height: 100vh;
   width: 100vw;
   background-color: #00000096;
-  z-index: 1000;
+  z-index: 10000;
   top: 0;
   left: 0;
   
@@ -543,6 +554,7 @@ li:hover .circle > span > span {
   width: 10px;
   top: 50%;
   left: 50%;
+  z-index: 1000;
   background-color: #00000096;
   
 }
@@ -684,6 +696,9 @@ li:hover .circle > span > span {
   height:0;
   width:0;
   position: absolute;
+}
+.z-index-7 {
+  z-index: 10;
 }
 
 
