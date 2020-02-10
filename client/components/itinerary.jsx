@@ -37,8 +37,10 @@ class Itinerary extends React.Component {
   }
 
   getItinerary() {
-    var urlStart = window.location.href.indexOf('?');
-    let urlid = window.location.href.slice(urlStart+1).toString();
+    var urlStart = window.location.href.slice(22);
+    var question = window.location.href.indexOf('?');
+    let urlid = urlStart.slice(0, question - 22);
+    console.log(urlid,'fuk', question)
     
     axios.get("http://localhost:3000/trips/hi").then(result => {
       var place = 0;
@@ -47,9 +49,9 @@ class Itinerary extends React.Component {
         plan: result.data[place]
       });
       for( var x = 0; x < this.state.plans.length; x++){
-        if(this.state.plans[x].location === urlid){
+        if(true == true){
           this.setState({
-            plan:this.state.plans[x]
+            plan:this.state.plans[urlid -1]
           })
         }
       }

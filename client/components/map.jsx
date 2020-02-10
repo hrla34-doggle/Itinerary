@@ -86,11 +86,22 @@ class Map extends React.Component {
     
   }
   Print(){
-    window.print();
+    var schedule = document.getElementById("schedule-container");
+    var image = document.getElementById("BPcityimage");
+    var tripDetails = document.getElementById('tripDetails')
+    var pri = document.getElementById("ifmcontentstoprint").contentWindow;
+    pri.document.open();
+    pri.document.write(image.innerHTML);
+    pri.document.write(tripDetails.innerHTML);
+    pri.document.write(schedule.innerHTML);
+    pri.document.close();
+    pri.focus();
+    pri.print();
   }
   render() {
     return (
       <div className="map-container display-block" id="map-container">
+        <iframe className="iframe"id="ifmcontentstoprint" ></iframe>
         <h1 className="light-black nunito maintitle">Your itinerary<span onClick={this.Print} className="float-right print-button">Print<PrintIcon className="float-right margin-left-10" height="23px" width="23px"/></span></h1>
         <div className="position-relative" onClick={this.props.expandMap} id="map">
           <div className="zoom-in-icon position-absolute box-shadow"><ZoomInIcon className="print-icon-center" height="25px" width="25px"/></div>

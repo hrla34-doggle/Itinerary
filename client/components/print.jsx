@@ -10,7 +10,7 @@ class Print extends React.Component {
 
     }
     render () {
-        <Schedule/>
+        <Schedule id="example-print"/>
     }
 }
 module.exports = Print;
