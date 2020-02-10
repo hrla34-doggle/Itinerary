@@ -115,7 +115,7 @@ li {
   width: 2px;
   content: "";
   position: absolute;
-  top: -25px;
+  top: -23px;
   bottom: 929px;
   left: 7px;
 }
@@ -234,6 +234,8 @@ li {
   top: -20px;
   bottom: 20px;
   left: 7px;
+
+ 
 }
 #checklist-anchor:after {
   background-color: grey;
@@ -242,8 +244,10 @@ li {
   position: absolute;
   transition: 0.5s;
   top: 20px;
-  bottom: 20px;
+  bottom: 17px;
   left: 7px;
+  z-index: -1;
+  
 }
 li:hover > #checklist-anchor:after {
   background-color: red;
@@ -251,8 +255,12 @@ li:hover > #checklist-anchor:after {
   content: "";
   position: absolute;
   top: 20px;
-  bottom: 20px;
+  bottom: 17px;
   left: 7px;
+  inline-size: 2;
+  z-index: 1;
+
+
 }
 
 .stayRed {
@@ -261,7 +269,6 @@ li:hover > #checklist-anchor:after {
   content: "";
   position: absolute;
   z-index: 2;
-  
 }
 
 .circle {
@@ -274,6 +281,7 @@ li:hover > #checklist-anchor:after {
   justify-content: center;
   float: left;
   margin-top: 20px;
+  
 }
 .innercircle {
   height: 13px;
@@ -293,6 +301,7 @@ li:hover > #checklist-anchor:after {
   transition: 1s;
   background-color: white;
   margin-top: 6px;
+  z-index: 2;
 }
 li:hover .circle {
   background-color: red;

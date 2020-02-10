@@ -39,7 +39,7 @@ class Itinerary extends React.Component {
   getItinerary() {
     var urlStart = window.location.href.slice(22);
     var question = window.location.href.indexOf('?');
-    let urlid = urlStart.slice(0, question - 22);
+    let urlid = urlStart.slice(0, urlStart.length);
     console.log(urlid,'fuk', question)
     
     axios.get("http://localhost:3000/trips/hi").then(result => {
