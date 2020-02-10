@@ -167,7 +167,11 @@ class Itinerary extends React.Component {
   }
   render() {
     if (this.state.plan === "") {
-      return <div>LOADING</div>;
+      return <div>
+        <span className="loadingtext">Loading</span>
+        <br></br>
+        <img className="loading" src="https://ebtrafalgar.s3-us-west-1.amazonaws.com/PinClipart.com_loading-clipart_4588206.png"/>
+      </div>;
     }
     return (
       <div id="itinerary-container">
