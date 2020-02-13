@@ -7,7 +7,7 @@ var stream = fs.createWriteStream('./SeedData/sampleData.json', 'utf-8');
 
 function write10MillTrips(writer, encoding, callback) {
   let i = 0;
-  const numTrips = 500000;
+  const numTrips = 10000000;
 
   writer.write('[', encoding);
 
