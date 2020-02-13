@@ -1,7 +1,10 @@
-// const Trip = require('./index');
 const faker = require('faker');
+
+// Used for generation of URL's
 var TripLocation = ['Australia', 'Israel', 'New_Zealand', 'Israel', 'Australia', 'South_Korea', 'South_Africa', 'South_Korea', 'Canada','China', 'Switzerland', 'New_Zealand', 'Costa_Rica', 'New_Zealand', 'New_Zealand', 'Costa_Rica', 'Peru', 'Kenya', 'Morocco', 'Thailand', 'Kenya', 'Russia', 'Egypt', 'Morocco', 'Australia', 'China', 'New_Zealand', 'Mexico', 'Costa_Rica', 'Brazil', 'Poland', 'Costa_Rica', 'Norway','Peru','South_Korea', 'Japan', 'Mexico','United_States', 'France', 'Japan', 'Vietnam', 'Brazil', 'Ireland', 'Canada', 'Australia', 'Thailand', 'Vietnam', 'Peru', 'Egypt', 'Brazil', 'Greece', 'Costa_Rica', 'Kenya', 'Kenya', 'South_Korea', 'New_Zealand', 'Greece', 'Mexico', 'Australia', 'Costa_Rica', 'Norway', 'South_Korea', 'Vietnam', 'United_States', 'Greece', 'South_Africa', 'Morocco', 'India', 'Kenya', 'Australia', 'New_Zealand', 'Germany', 'Peru', 'South_Africa', 'Peru', 'Italy', 'Ireland', 'India', 'Australia', 'Morocco', 'United_States', 'Vietnam', 'Israel', 'Poland', 'Italy', 'Egypt', 'Mexico', 'Spain', 'Japan', 'Canada', 'Costa_Rica', 'Switzerland', 'Israel', 'Peru', 'Brazil', 'Brazil', 'Japan', 'South_Africa', 'Mexico', 'Poland'];
 
+// Main function to export
+// will generate a fakeTrip object thing
 function fakeTrip(id) {
     const days = faker.random.number({min: 3, max: 6});
     const cities = [];
@@ -42,6 +45,7 @@ function buildSchedule(number) {
     return output;
 }
 
+// helper function to build optionals object
 function buildOptionals(amnt, numDays) {
     const output = [];
 
@@ -57,6 +61,7 @@ function buildOptionals(amnt, numDays) {
     return output;
 }
 
+// helper function to build coordinates object
 function buildCoordinates(number) {
     var output = [];
 
