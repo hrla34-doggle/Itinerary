@@ -10,4 +10,5 @@ router
 router
 .route('/:id')
 .get(controllers.getOne)
+.delete(controllers.deleteOne)
 module.exports = router;

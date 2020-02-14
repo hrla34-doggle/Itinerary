@@ -24,10 +24,20 @@ const controllers = {
         .then(()=>{res.status(200).send('deleted all')})
         .catch((err)=> {res.status(400).send(err)})
     },
+    // This is the one I'm working on
+    deleteOne: (req, res) => {
+        models.deleteOne(req.params.id)
+        .then(()=>{res.status(200).send(`Deleted item with id: ${req.params.id}`)})
+        .catch((err)=> {res.status(400).send(err)})
+    },
     getOne: (req, res) => {
-        var one = req.params;
-        console.log(one)
-        models.get({})
+        models.getOne(req.params.id)
+        .then(val => {
+            console.log(Array.isArray(val.cities));
+            console.log(val);
+            res.status(200).send(val)
+        })
+        .catch(err => res.status(400).send(err))
     }
 }
 

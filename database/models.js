@@ -9,6 +9,12 @@ const models = {
   },
   delete: () => {
     return Trip.deleteMany({});
+  },
+  getOne: (id) => {
+    return Trip.findOne({id});
+  },
+  deleteOne: (id) => {
+    return Trip.findOneAndDelete({id});
   }
 };
 
