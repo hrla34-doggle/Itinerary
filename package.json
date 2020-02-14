@@ -8,7 +8,9 @@
     "build": "webpack --w",
     "seed": "node database/seed.js",
     "test": "jest --verbose --coverage",
-    "svgr": "svgr -d client/assets/"
+    "svgr": "svgr -d client/assets/",
+    "writesample": "node ./database/faketripwrite.js",
+    "insertsample": "mongoimport --uri=mongodb://localhost/trips -c trips --type=tsv --headerline ./database/SeedData/sampleData.tsv"
   },
   "author": "edgar barrientos",
   "license": "ISC",
@@ -20,8 +22,10 @@
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
     "body-parser": "^1.19.0",
+    "cli-progress": "^3.6.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "faker": "^4.1.0",
     "mongoose": "^5.8.9",
     "nodemon": "^2.0.2",
     "path": "^0.12.7",
