@@ -8,7 +8,9 @@
     "build": "webpack --w",
     "seed": "node database/seed.js",
     "test": "jest --verbose --coverage",
-    "svgr": "svgr -d client/assets/"
+    "svgr": "svgr -d client/assets/",
+    "writesample": "node ./database/faketripwrite.js",
+    "insertsample": "mongoimport --uri=mongodb://localhost/trips -c trips --type=tsv --headerline ./database/SeedData/sampleData.tsv"
   },
   "author": "edgar barrientos",
   "license": "ISC",
