@@ -5,16 +5,26 @@ const TripSchema = mongoose.Schema({
   name: String, // name of activity
   location: String, // country name
   days: Number, // random int from 3-10 days
-  cities: [String], // Array of strings
+  cities: String, // Array of strings
   mapPic: String, // url to picture of map
-  schedule: Array, // Array of mix things...
-  optionals: Array, // array of objects for optional events
-  coordinates: Array // 
+  schedule: String, // Array of mix things...
+  optionals: String, // array of objects for optional events
+  coordinates: String // 
 });
 
 module.exports = TripSchema;
 
-
+// const TripSchema = mongoose.Schema({
+//   id: Number, // sequential from 0 - 10mill
+//   name: String, // name of activity
+//   location: String, // country name
+//   days: Number, // random int from 3-10 days
+//   cities: Array, // Array of strings
+//   mapPic: String, // url to picture of map
+//   schedule: Array, // Array of mix things...
+//   optionals: Array, // array of objects for optional events
+//   coordinates: Array // 
+// });
 /*
 --schedule--
 Array of objects

@@ -33,9 +33,18 @@ const controllers = {
     getOne: (req, res) => {
         models.getOne(req.params.id)
         .then(val => {
-            console.log(Array.isArray(val.cities));
-            console.log(val);
-            res.status(200).send(val)
+            var output = {
+                id: val.id,
+                name: val.name,
+                location: val.location,
+                days: val.days,
+                cities: val.cities.split(','),
+                mapPic: val.mapPic,
+                schedule: JSON.parse(val.schedule),
+                coordinates: JSON.parse(val.coordinates)
+            }
+
+            res.status(200).send(output)
         })
         .catch(err => res.status(400).send(err))
     }
