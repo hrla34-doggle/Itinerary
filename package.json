@@ -10,7 +10,7 @@
     "test": "jest --verbose --coverage",
     "svgr": "svgr -d client/assets/",
     "writesample": "node ./database/faketripwrite.js",
-    "insertsample": "mongoimport --uri=mongodb://localhost/trips -c trips --type=tsv --headerline ./database/SeedData/sampleData.tsv"
+    "insertsample": "mongoimport --uri=mongodb://localhost/trips -c=trips --type=tsv --headerline ./database/SeedData/sampleData.tsv"
   },
   "author": "edgar barrientos",
   "license": "ISC",
@@ -42,3 +42,5 @@
     "webpack-cli": "^3.3.10"
   }
 }
+
+

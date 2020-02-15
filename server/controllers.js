@@ -11,7 +11,18 @@ const controllers = {
         })
     },
     post: (req, res) => {
-        models.post(req.body)
+        var input = {
+            id: res.body.id,
+            name: res.body.name,
+            location: res.body.location,
+            days: res.body.days,
+            cities: JSON.stringify(res.body.cities.split),
+            mapPic: res.body.mapPic,
+            schedule: JSON.stringify(res.body.schedule),
+            coordinates: JSON.stringify(res.body.coordinates)
+        }
+
+        models.post(input)
         .then(()=>{
             res.status(200).send('Posted')
         })

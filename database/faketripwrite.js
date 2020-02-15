@@ -4,13 +4,13 @@ const fs = require('fs');
 const start = Date.now();
 
 var stream = fs.createWriteStream('./database/SeedData/sampleData.tsv', 'utf-8');
+// var stream = fs.createWriteStream('./SeedData/sampleData.tsv', 'utf-8');
 
 function write10MillTrips(writer, encoding, callback) {
   let i = 0;
-  const numTrips = 10;
+  const numTrips = 1000001;
 
   // write the header here for the csv
-  // 
   writer.write('id\tname\tlocation\tdays\tcities\tmapPic\tschedule\toptionals\tcoordinates\n', encoding);
 
   write();
