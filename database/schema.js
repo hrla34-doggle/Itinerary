@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const TripSchema = mongoose.Schema({
-  id: Number, // sequential from 0 - 10mill
+  id: { type: Number, index: true }, // sequential from 0 - 10mill
   name: String, // name of activity
   location: String, // country name
   days: Number, // random int from 3-10 days

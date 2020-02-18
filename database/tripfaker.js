@@ -21,9 +21,9 @@ function fakeTrip(id) {
         days,
         cities,
         mapPic,
-        JSON.stringify(buildSchedule(days)),
-        JSON.stringify(buildOptionals(faker.random.number({min: 0, max: days}), days)),
-        JSON.stringify(buildCoordinates(days))
+        buildSchedule(days),
+        buildOptionals(faker.random.number({min: 0, max: days}), days),
+        buildCoordinates(days)
     ];
 
     return output.join('\t');
@@ -31,50 +31,95 @@ function fakeTrip(id) {
 
 // helper function to build out schedule
 function buildSchedule(number) {
-    var output = [];
+    var output = `[`;
 
     for (var i = 0; i < number; i++) {
-        output.push({
-            activity: faker.lorem.word() + " ",
-            city: faker.address.city() + " ",
-            title: faker.lorem.words() + " ",
-            hotel: faker.company.companyName() + " ",
-            meal: faker.lorem.words() + " ",
-            description: faker.lorem.sentence() + " "
-        });
+        output += `{`;
+        output += `"activity": "${faker.lorem.word()} ",`;
+        output += `"city": "${faker.address.city()} ",`;
+        output += `"title": "${faker.lorem.words()} ",`;
+        output += `"hotel": "${faker.company.companyName()} ",`;
+        output += `"meal": "${faker.lorem.words()} ",`;
+        output += `"description": "${faker.lorem.sentence()} "`;
+        output += `},`
     }
-
+    output = output.substring(0, output.length - 1);
+    output += `]`;
     return output;
+
+    // var output = [];
+
+    // for (var i = 0; i < number; i++) {
+    //     output.push({
+    //         activity: faker.lorem.word() + " ",
+    //         city: faker.address.city() + " ",
+    //         title: faker.lorem.words() + " ",
+    //         hotel: faker.company.companyName() + " ",
+    //         meal: faker.lorem.words() + " ",
+    //         description: faker.lorem.sentence() + " "
+    //     });
+    // }
+    // return output;
 }
 
 // helper function to build optionals object
 function buildOptionals(amnt, numDays) {
-    const output = [];
+    let output = '[';
 
     for (var i = 0; i < amnt; i++) {
-        output.push({
-            title: faker.lorem.words() + " ",
-            price: faker.finance.amount(50, 800, 2, '$'),
-            description: faker.lorem.sentence() + " ",
-            day: faker.random.number({min: 1, max: numDays})
-        });
+        output += '{';
+        output += `"title": "${faker.lorem.words()} ",`,
+        output += `"price": ${faker.finance.amount(50, 800, 2, '$')} ",`,
+        output += `"description": ${faker.lorem.sentence()} ",`,
+        output += `"day": ${faker.random.number({min: 1, max: numDays})} "`
+        output += `},`
     }
-
+    if (amnt !== 0) {
+        output = output.substring(0, output.length - 1);
+    }
+    
+    output += `]`;
     return output;
+
+    // const output = [];
+
+    // for (var i = 0; i < amnt; i++) {
+    //     output.push({
+    //         title: faker.lorem.words() + " ",
+    //         price: faker.finance.amount(50, 800, 2, '$'),
+    //         description: faker.lorem.sentence() + " ",
+    //         day: faker.random.number({min: 1, max: numDays})
+    //     });
+    // }
+
+    // return output;
 }
 
 // helper function to build coordinates object
 function buildCoordinates(number) {
-    var output = [];
+    var output = `[`;
 
     for (var i = 0; i < number; i++) {
-        output.push({
-            top: faker.random.number({min: 0, max: 599}),
-            left: faker.random.number({min: 0, max: 599})
-        });
+        output += '{';
+        
+        output += `"top": ${faker.random.number({min: 0, max: 599})},`,
+        output += `"left": ${faker.random.number({min: 0, max: 599})}`
+        output += '},';
     }
-
+    output = output.substring(0, output.length - 1);
+    output += `]`;
     return output;
+
+
+    // var output = [];
+
+    // for (var i = 0; i < number; i++) {
+    //     output.push({
+    //         top: faker.random.number({min: 0, max: 599}),
+    //         left: faker.random.number({min: 0, max: 599})
+    //     });
+    // }
+    // return output;
 }
 
 

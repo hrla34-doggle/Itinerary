@@ -1,14 +1,16 @@
 const fakeTrip = require('./tripfaker.js');
 const fs = require('fs');
+const path = require('path');
 
 const start = Date.now();
 
-var stream = fs.createWriteStream('./database/SeedData/sampleData.tsv', 'utf-8');
+// var stream = fs.createWriteStream('./database/SeedData/sampleData3.tsv', 'utf-8');
+var stream = fs.createWriteStream(path.join(__dirname, '/SeedData/sampleData10.tsv'), 'utf-8');
 // var stream = fs.createWriteStream('./SeedData/sampleData.tsv', 'utf-8');
 
 function write10MillTrips(writer, encoding, callback) {
-  let i = 0;
-  const numTrips = 1000001;
+  let i = 9000000;
+  const numTrips = 10000001;
 
   // write the header here for the csv
   writer.write('id\tname\tlocation\tdays\tcities\tmapPic\tschedule\toptionals\tcoordinates\n', encoding);
