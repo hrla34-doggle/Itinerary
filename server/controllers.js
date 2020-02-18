@@ -53,9 +53,9 @@ const controllers = {
                 mapPic: val.mapPic,
                 schedule: JSON.parse(val.schedule),
                 coordinates: JSON.parse(val.coordinates)
-            }
+            };
 
-            res.status(200).send(output)
+            res.status(200).send(output);
         })
         .catch(err => res.status(400).send(err))
     }
