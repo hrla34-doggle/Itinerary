@@ -1,4 +1,4 @@
-const models = require('../database/models');
+const models = require('../database/mongodb/models');
 
 const controllers = {
     get: (req, res) => {

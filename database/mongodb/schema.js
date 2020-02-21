@@ -34,6 +34,7 @@ shape of object: {
   title: STRING sub heading of the activity
   hotel: STRING name of hotel stay
   meal: STRING of all the avalible meals for the day
+  description: String of description
 }
 
 example:

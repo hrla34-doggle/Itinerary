@@ -2,15 +2,27 @@ const fakeTrip = require('./tripfaker.js');
 const fs = require('fs');
 const path = require('path');
 
+const cliArg = parseInt(process.argv[2]) || 1;
+
 const start = Date.now();
 
 // var stream = fs.createWriteStream('./database/SeedData/sampleData3.tsv', 'utf-8');
-var stream = fs.createWriteStream(path.join(__dirname, '/SeedData/sampleData10.tsv'), 'utf-8');
+var stream = fs.createWriteStream(path.join(__dirname, `../SeedData/sampleData${cliArg}.tsv`), 'utf-8');
 // var stream = fs.createWriteStream('./SeedData/sampleData.tsv', 'utf-8');
 
 function write10MillTrips(writer, encoding, callback) {
-  let i = 9000000;
-  const numTrips = 10000001;
+  // let i;
+
+  // if (cliArg === 1) {
+  //   i = 1;
+  // } else {
+  //   i =((cliArg - 1) * 1000000);
+  // }
+  // // const numTrips = 2000001;
+  // const numTrips = 1000000 * cliArg + 1;
+
+  let i = 0;
+  const numTrips = 5;
 
   // write the header here for the csv
   writer.write('id\tname\tlocation\tdays\tcities\tmapPic\tschedule\toptionals\tcoordinates\n', encoding);
@@ -48,7 +60,6 @@ write10MillTrips(stream, 'utf-8', () => {
 
   console.log((Date.now() - start)/1000);
 });
-
 
 
 // Code for JSON file
