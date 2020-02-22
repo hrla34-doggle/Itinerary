@@ -26,7 +26,8 @@ CREATE TABLE schedules(
   activity TEXT,
   city_id INTEGER REFERENCES cities(id),
   hotel TEXT,
-  meal TEXT
+  meal TEXT,
+  description TEXT
 );
 
 -- Holds the optional activities for each trip
@@ -36,7 +37,7 @@ CREATE TABLE optionals(
   title TEXT,
   price TEXT,
   description TEXT,
-  "day" TEXT
+  "day" INTEGER
 );
 
 \c postgres;
