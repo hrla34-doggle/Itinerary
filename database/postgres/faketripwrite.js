@@ -7,44 +7,42 @@ const cliArg = parseInt(process.argv[2]) || 1;
 const start = Date.now();
 
 // var stream = fs.createWriteStream('./database/SeedData/sampleData3.tsv', 'utf-8');
-var stream = fs.createWriteStream(path.join(__dirname, `../SeedData/sampleData${cliArg}.tsv`), 'utf-8');
+var stream = fs.createWriteStream(path.join(__dirname, `./SeedData/optionals/sampleOptionals${cliArg}.tsv`), 'utf-8');
 // var stream = fs.createWriteStream('./SeedData/sampleData.tsv', 'utf-8');
 
-function write10MillTrips(writer, encoding, callback) {
-  // let i;
+function write10MillTrips(writer, encoding, callback, fakerFunction) {
+  let i;
 
-  // if (cliArg === 1) {
-  //   i = 1;
-  // } else {
-  //   i =((cliArg - 1) * 1000000);
-  // }
-  // // const numTrips = 2000001;
-  // const numTrips = 1000000 * cliArg + 1;
+  // i = 1 + ((cliArg - 1) * 1000000)
+  // const numTrips = 1000000 * cliArg;
 
-  let i = 1;
-  const numTrips = 5;
-
-  // write the header here for the csv
-  writer.write('id\tname\tlocation\tdays\tcities\tmapPic\tschedule\toptionals\tcoordinates\n', encoding);
+  i = 1;
+  const numTrips = 2;
 
   write();
   function write() {
     let ok = true;
 
     do {
-      i++;
-      let data = fakeTrip(i);
+      const numSchedules = Math.ceil(Math.random() * 3);
 
-      if (i === numTrips) {
-        // Last time!
-        writer.write(data, encoding, callback);
-      } else {
-        // See if we should continue, or wait.
-        // Don't pass the callback, because we're not done yet.
-        data += '\n';
-        ok = writer.write(data, encoding);
+      for (var j = 0; j < numSchedules; j++) {
+        let data = fakerFunction(i);
+
+        if (i === numTrips) {
+          // Last time!
+          data += '\n';
+          writer.write(data, encoding, callback);
+        } else {
+          // See if we should continue, or wait.
+          // Don't pass the callback, because we're not done yet.
+          data += '\n';
+          ok = writer.write(data, encoding);
+        }
       }
-    } while (i < numTrips && ok);
+      
+      i++;
+    } while (i <= numTrips && ok);
 
     if (i < numTrips) {
       // Had to stop early!
@@ -55,11 +53,10 @@ function write10MillTrips(writer, encoding, callback) {
 }
 
 write10MillTrips(stream, 'utf-8', () => {
-  stream.write(']', 'utf-8')
   stream.end();
 
   console.log((Date.now() - start)/1000);
-});
+}, fakeTrip.fakeOptionals);
 
 
 // Code for JSON file
