@@ -14,7 +14,7 @@ CREATE TABLE trips(
 DROP TABLE IF EXISTS cities;
 CREATE TABLE cities(
   id INTEGER NOT NULL PRIMARY KEY,
-  name TEXT,
+  city_name TEXT,
   top INTEGER,
   "left" INTEGER
 );
