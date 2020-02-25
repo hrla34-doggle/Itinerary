@@ -11,18 +11,15 @@ var stream = fs.createWriteStream(path.join(__dirname, `../SeedData/sampleData${
 // var stream = fs.createWriteStream('./SeedData/sampleData.tsv', 'utf-8');
 
 function write10MillTrips(writer, encoding, callback) {
-  // let i;
+  let i;
 
-  // if (cliArg === 1) {
-  //   i = 1;
-  // } else {
-  //   i =((cliArg - 1) * 1000000);
-  // }
-  // // const numTrips = 2000001;
-  // const numTrips = 1000000 * cliArg + 1;
+  i = 1 + ((cliArg - 1) * 1000000)
+  const numTrips = 1000000 * cliArg;
 
-  let i = 0;
-  const numTrips = 5;
+  // i = 1;
+  // const numTrips = 10;
+  // i = 1000000;
+  // const numTrips = 10000000;
 
   // write the header here for the csv
   writer.write('id\tname\tlocation\tdays\tcities\tmapPic\tschedule\toptionals\tcoordinates\n', encoding);
@@ -32,7 +29,6 @@ function write10MillTrips(writer, encoding, callback) {
     let ok = true;
 
     do {
-      i++;
       let data = fakeTrip(i);
 
       if (i === numTrips) {
@@ -44,9 +40,11 @@ function write10MillTrips(writer, encoding, callback) {
         data += '\n';
         ok = writer.write(data, encoding);
       }
-    } while (i < numTrips && ok);
+      // i++;
+      i += 1000000;
+    } while (i <= numTrips && ok);
 
-    if (i < numTrips) {
+    if (i <= numTrips) {
       // Had to stop early!
       // Write some more once it drains.
       writer.once('drain', write);

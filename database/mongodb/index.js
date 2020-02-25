@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
-const mongoURI = "mongodb://localhost/trips";
+
+// const mongoURI = "mongodb://localhost/trips";
+const mongoURI = "mongodb://54.183.83.49:27017/trips";
+
 const TripSchema = require("./schema");
 
 mongoose.Promise = global.Promise;
