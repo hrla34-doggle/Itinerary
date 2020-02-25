@@ -3,3 +3,6 @@ database/SeedData
 
 *.tsv
 *.csv
+
+newrelic.js
+config.bat
