@@ -1,3 +1,5 @@
+require('newrelic');
+
 const express = require('express');
 const port = 3000;
 const router = require('./routes');
